@@ -18,7 +18,6 @@ imgSelector.addEventListener("change", function () { // file has been picked
     pageheader.innerHTML = "Just a sec while we analyse your image...";
     processImage(function (file) { //this checks the extension and file
         // Get emotions based on image
-        image = file;
         sendDescriptionRequest(file, function (description) { //here we send the API request and get the response
             // Find out most dominant emotion
             text = getCaption(description); //this is where we send out scores to find out the predominant emotion
@@ -41,13 +40,14 @@ function processImage(callback) : void {
     } else {
         console.log("Invalid file");
     }
-    reader.onloadend = function () { 
+    reader.onloadend = function (e) { 
         //After loading the file it checks if extension is jpg or png and if it isnt it lets the user know.
         if (!file.name.match(/\.(jpg|jpeg|png)$/)){
             pageheader.innerHTML = "Please upload an image file (jpg or png).";
         } else {
             //if file is photo it sends the file reference back up
             callback(file);
+            $(file).next('blah').attr('src', e.target.result);
             
         }
     }
