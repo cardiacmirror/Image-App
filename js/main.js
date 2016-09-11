@@ -1,4 +1,3 @@
-//declare var SC:any; // Magic - tells that there is some variable SC out there (SC is from the SoundCloud script file)
 type;
 "text/javascript" >
 ;
