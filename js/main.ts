@@ -46,7 +46,7 @@ function processImage(callback) : void {
         } else {
             //if file is photo it sends the file reference back up
             callback(file);
-            $(file).next('blah').attr('src', e.target.result);
+           // $(file).next('blah').attr('src', e.target.result);
             
         }
     }
